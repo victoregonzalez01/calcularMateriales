@@ -1,0 +1,324 @@
+{
+  "productos": [
+    {
+      "sku": "168146",
+      "nombre": "PISO SOUL AMANPURI",
+      "tamaño": "60x60",
+      "color": "#FFFFFF",
+      "rendimiento": 1.44,
+      "imagen": "img/azulejo-blanco.jpg"
+    },
+    {
+      "sku": "137440",
+      "nombre": "PISO ST VINCENT",
+      "tamaño": "45x90",
+      "color": "#ffffff",
+      "rendimiento": 1.21,
+      "imagen":"img/prueba"
+    },
+    {
+      "sku": "115675",
+      "nombre": "PISO MONTPELLIER",
+      "tamaño": "40x60",
+      "color": "#F5F5DC",
+      "rendimiento": 1.44,
+      "imagen":"img/prueba2"
+    },
+    {
+      "sku":"205546",
+      "nombre": "Piso Agape",
+      "tamaño": "60x60",
+      "color": "white",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"205543",
+      "nombre": "Piso Stella Grigio",
+      "tamaño": "60x60",
+      "color": "gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"225772",
+      "nombre": "Piso Arrebol NOCE",
+      "tamaño": "20x60",
+      "color": "brown",
+      "rendimiento": 1.2,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"137434",
+      "nombre": "Piso Rainforest Nogal",
+      "tamaño": "20x60",
+      "color": "brown",
+      "rendimiento": 1.2,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"137417",
+      "nombre": "Piso Lugano Beige",
+      "tamaño": "15x50",
+      "color": "#E8DCCA",
+      "rendimiento": 0.98,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"205552",
+      "nombre": "Muro Stella BIANCO",
+      "tamaño": "31x61",
+      "color": "White",
+      "rendimiento": 1.51,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"205548",
+      "nombre": "Piso Catania AVORIO",
+      "tamaño": "60x60",
+      "color": "#C9A86F",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"225779",
+      "nombre": "Piso Alhena BIANCO",
+      "tamaño": "60x60",
+      "color": 1.44,
+      "rendimiento": "White",
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"115784",
+      "nombre": "Muro Vesubio POMPEIA",
+      "tamaño": "25x50",
+      "color": "Gray",
+      "rendimiento": 1.5,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"115776",
+      "nombre": "Piso Vesubio POMEIA",
+      "tamaño": "50x50",
+      "color": "Gray",
+      "rendimiento": 1.75,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"144123",
+      "nombre": "Muro Kirigami",
+      "tamaño": "31x61",
+      "color": "White",
+      "rendimiento": 1.51,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"225780",
+      "nombre": "Piso Alhena CREMA",
+      "tamaño": "60x60",
+      "color": "#FFFFBF",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"225588",
+      "nombre": "Muro Rilievi",
+      "tamaño": "25x50",
+      "color": "White",
+      "rendimiento": 1.5,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"115868",
+      "nombre": "Piso Marble Colección Statuario",
+      "tamaño": "60x60",
+      "color": "#F0F0F0",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"137404",
+      "nombre": "Piso Brunei",
+      "tamaño": "60x60",
+      "color": "Gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"144125",
+      "nombre": "Piso Janeiro Copacabana",
+      "tamaño": "60x60",
+      "color": "white",
+      "rendimiento": 1.75,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"168147",
+      "nombre": "Piso Soul Royal Nero",
+      "tamaño": "60x60",
+      "color": "#272f38",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"115793",
+      "nombre": "Piso crema Marfil Claro",
+      "tamaño": "60x60",
+      "color": "white",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"168150",
+      "nombre": "Piso Tundra Thunder gray",
+      "tamaño": "40x60",
+      "color": "gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+    },
+    {
+      "sku":"225701",
+      "nombre": "Piso Starlyn BLANCO",
+      "tamaño": "44x89",
+      "color": "White",
+      "rendimiento": 1.17,
+      "imagen": "img/prueba2"
+    },
+    {
+  "sku":"168148",
+      "nombre": "Piso Tundra Nightfall Black",
+      "tamaño": "40x60",
+      "color": "Black",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115830",
+      "nombre": "Piso Thassos Travertine Roman",
+      "tamaño": "40x60",
+      "color": "beige",
+      "rendimiento":1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"205549",
+      "nombre": "Piso Antartida Vostok Gray",
+      "tamaño": "40x60",
+      "color": "Gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150284",
+      "nombre": "Piso Stella Bianco",
+      "tamaño": "60x60",
+      "color": "white",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"15675",
+      "nombre": "Piso Montpellier Grigio",
+      "tamaño": "40x60",
+      "color": "brown",
+      "rendimiento":1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115642",
+      "nombre": "Piso Montpellier Nero",
+      "tamaño": "40x60",
+      "color": "brown",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"205935",
+      "nombre": "Muro Soul Amampuri Bianco",
+      "tamaño": "31x61",
+      "color": "white",
+      "rendimiento": 1.51,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150318",
+      "nombre": "Piso Polaris Nova Gray",
+      "tamaño": "45x90",
+      "color": "gray",
+      "rendimiento": 1.21,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225775",
+      "nombre": "Piso Luminova Perlato",
+      "tamaño": "60x120",
+      "color": "pearl",
+      "rendimiento":1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137433",
+      "nombre": "Piso Quartzite Iron",
+      "tamaño": "45x90",
+      "color": "Silver",
+      "rendimiento":1.21 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"231826",
+      "nombre": "Piso Creato Ivory",
+      "tamaño": "60x120",
+      "color": "White",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225770",
+      "nombre": "Piso Luminova Grigio",
+      "tamaño": "60x120",
+      "color": "gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225768",
+      "nombre": "Piso Savoy Carrara Bianco",
+      "tamaño": "60x120",
+      "color": "white",
+      "rendimiento":1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150316",
+      "nombre": "Piso Avalon Omega",
+      "tamaño": "45x90",
+      "color": "white",
+      "rendimiento": 1.21,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225771",
+      "nombre": "Piso Novaterra Grigio",
+      "tamaño": "60x120",
+      "color": "gray",
+      "rendimiento":1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150228",
+      "nombre": "Piso Terraviva",
+      "tamaño": "45x90",
+      "color": "gray",
+      "rendimiento": 1.21,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137398",
+      "nombre": "Piso Acadia Winter",
+      "tamaño": "60x60",
+      "color": "white",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+}
+  ]
+}
