@@ -13,11 +13,25 @@ async function cargarProductos() {
     try {
         const response = await fetch('productos.json');
         if (!response.ok) {
+            // Intenta cargar desde caché si falla la red
+            const cache = await caches.open('calc-materiales-cache-v2');
+            const cachedResponse = await cache.match('productos.json');
+            
+            if (cachedResponse) {
+                const data = await cachedResponse.json();
+                productos = data.productos;
+                mostrarProductosDisponibles();
+                return;
+            }
             throw new Error('No se pudo cargar la base de productos');
         }
         const data = await response.json();
         productos = data.productos;
         mostrarProductosDisponibles();
+        
+        // Guarda en caché para futuras solicitudes
+        const cache = await caches.open('calc-materiales-cache-v2');
+        cache.put('productos.json', new Response(JSON.stringify(data)));
     } catch (error) {
         console.error('Error:', error);
         mostrarError(`Error al cargar productos: ${error.message}`);
