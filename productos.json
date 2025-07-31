@@ -1,5 +1,14 @@
 {
   "productos": [
+    
+    {
+      "sku": "137437",
+      "nombre": "PISO Ruidoso",
+      "tamaño": "17.5X91",
+      "color": "Brown",
+      "rendimiento": 1.59,
+      "imagen": "img/prueba"
+    },
     {
       "sku": "168146",
       "nombre": "PISO SOUL AMANPURI",
