@@ -192,30 +192,15 @@ function mostrarResultados() {
     `;
 
     resultadosDiv.style.display = "block";
-
-    // Asumiendo que tienes una variable para el espesor (ej: const espesor = 4;)
-if (superficie === 'bañera' || espesor > 3) {
-    let rendimiento, tipoBoquilla, mensaje;
-    
-    if (superficie === 'bañera') {
-        // Cálculo para bañera (independiente del espesor)
-        rendimiento = 14;
-        tipoBoquilla = "Boquilla estándar para bañeras";
-        mensaje = `1 saco rinde para 14 m² (${metros} m² / 14 = ${Math.ceil(metros / 14)} sacos)`;
-    } else {
-        // Cálculo para espesores >3mm (no bañera)
-        rendimiento = 10;  // 1 saco para 10 m² cuando lleva arena
-        tipoBoquilla = "Boquilla con arena para espesores >3mm";
-        mensaje = `1 saco con arena rinde para 10 m² (${metros} m² / 10 = ${Math.ceil(metros / 10)} sacos)`;
+//Superficie bañera
+if (superficie === 'bañera') {
+        // Calcular sacos de boquilla: 1 saco para 14 m²
+        const sacosBoquilla = Math.ceil(metros / 14);
+        document.getElementById('tipoBoquilla').textContent = "Boquilla estándar para bañeras";
+        document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
+        document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+        boquillaResultados.style.display = "block";
     }
-
-    const sacosBoquilla = Math.ceil(metros / rendimiento);
-    
-    document.getElementById('tipoBoquilla').textContent = tipoBoquilla;
-    document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = mensaje;
-    boquillaResultados.style.display = "block";
-}
 
     // Desplazarse suavemente a los resultados
     resultadosDiv.scrollIntoView({ behavior: 'smooth' });
