@@ -1,25 +1,23 @@
 // sw.js
-const CACHE_NAME = 'calc-materiales-cache-v1';
+const CACHE_NAME = 'calc-materiales-cache-v2'; // Cambiamos la versión
 const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
+  '/script.js',
+  '/manifest.json',
+  '/productos.json', // ¡IMPORTANTE! Añadimos el JSON de productos
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
   'https://interceramic.com/on/demandware.static/Sites-interceramic-Site/-/default/dw3478a94e/images/logo.png',
-  'https://raw.githubusercontent.com/victoregonzalez01/victoregonzalez01.github.io/refs/heads/main/LOGO.ico',
-  'https://interceramic.com/on/demandware.static/-/Sites/default/dw9d4c5c4e/images/137437.png',
-  'https://interceramic.com/on/demandware.static/-/Sites/default/dw6e4c9f4f/images/137440.png',
-  'https://interceramic.com/on/demandware.static/-/Sites/default/dwdd5c5a8d/images/168146.png',
-  'https://interceramic.com/on/demandware.static/-/Sites/default/dw2f5d9f65/images/168147.png',
-  'https://interceramic.com/on/demandware.static/-/Sites/default/dw2a8b1d6a/images/137438.png',
-  'https://interceramic.com/on/demandware.static/-/Sites/default/dwcb7c3e0a/images/168148.png'
+  'https://raw.githubusercontent.com/victoregonzalez01/victoregonzalez01.github.io/refs/heads/main/LOGO.ico'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
+        console.log('Cache abierta');
         return cache.addAll(urlsToCache);
       })
   );
@@ -29,10 +27,29 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
+        // Devuelve respuesta en caché si existe
         if (response) {
           return response;
         }
-        return fetch(event.request);
+        
+        // Clona la petición para poder usarla
+        const fetchRequest = event.request.clone();
+        
+        return fetch(fetchRequest).then(response => {
+          // Verifica si la respuesta es válida
+          if(!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
+          }
+
+          // Clona la respuesta para guardarla en caché
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME)
+            .then(cache => {
+              cache.put(event.request, responseToCache);
+            });
+
+          return response;
+        });
       })
   );
 });
