@@ -27,7 +27,7 @@
     },
     {
       "sku": "115675",
-      "nombre": "PISO MONTPELLIER",
+      "nombre": "PISO MONTPELLIER GRIGIO",
       "tamaño": "40x60",
       "color": "#F5F5DC",
       "rendimiento": 1.44,
@@ -223,14 +223,6 @@
       "tamaño": "60x60",
       "color": "white",
       "rendimiento": 1.44,
-      "imagen": "img/prueba2"
-},
-{
-  "sku":"15675",
-      "nombre": "Piso Montpellier Grigio",
-      "tamaño": "40x60",
-      "color": "brown",
-      "rendimiento":1.44 ,
       "imagen": "img/prueba2"
 },
 {
