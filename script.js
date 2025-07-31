@@ -101,6 +101,7 @@ function mostrarResultados() {
     boquillaResultados.style.display = "none";
 
     // Validación
+
     if (!superficie) {
         mostrarError("Selecciona una superficie");
         return;
@@ -119,6 +120,11 @@ function mostrarResultados() {
         mostrarError("Ingresa metros cuadrados válidos (mayores a cero)");
         return;
     }
+    // Validación adicional para bañeras
+        if (superficie === 'bañera' && (separacionValor === 5 || separacionValor === 6)) {
+            mostrarError("Para bañeras, las separaciones de 5mm y 6mm no están disponibles");
+            return;
+        }
 
     // Buscar producto
     const producto = productos.find(p => p.sku === sku);
@@ -193,14 +199,21 @@ function mostrarResultados() {
 
     resultadosDiv.style.display = "block";
 //Superficie bañera
-if (superficie === 'bañera') {
-        // Calcular sacos de boquilla: 1 saco para 14 m²
-        const sacosBoquilla = Math.ceil(metros / 14);
-        document.getElementById('tipoBoquilla').textContent = "Boquilla estándar para bañeras";
-        document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-        document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
-        boquillaResultados.style.display = "block";
-    }
+if (superficie === 'bañera' || separacionValor <= 3) {
+    // Calcular sacos de boquilla: 1 saco para 14 m²
+    const sacosBoquilla = Math.ceil(metros / 14);
+    document.getElementById('tipoBoquilla').textContent = "Boquilla sin arena";
+    document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
+    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+    boquillaResultados.style.display = "block";
+} else if (separacionValor >= 5) {
+    // Calcular sacos de boquilla: 1 saco para 14 m²
+    const sacosBoquilla = Math.ceil(metros / 14);
+    document.getElementById('tipoBoquilla').textContent = "Boquilla con arena";
+    document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
+    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+    boquillaResultados.style.display = "block";
+}
 
     // Desplazarse suavemente a los resultados
     resultadosDiv.scrollIntoView({ behavior: 'smooth' });
