@@ -8,6 +8,10 @@ const errorDiv = document.getElementById('errorMessage');
 const productosContainer = document.getElementById('productosContainer');
 const boquillaResultados = document.getElementById('boquillaResultados');
 
+window.addEventListener('error', (event) => {
+    console.error('Error global:', event.error);
+    mostrarError(`Se produjo un error inesperado: ${event.message}`);
+});
 // Cargar productos desde JSON
 async function cargarProductos() {
     try {
@@ -315,15 +319,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Service Worker Registration
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('sw.js')
-                        .then(registration => {
-                            console.log('ServiceWorker registered: ', registration);
-                        })
-                        .catch(error => {
-                            console.log('ServiceWorker registration failed: ', error);
-                        });
+           if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registrado: ', registration);
+                // Forzar actualización del Service Worker
+                registration.update();
+            })
+            .catch(error => {
+                console.log('ServiceWorker registro fallido: ', error);
+            });
                 });
             }
         });
