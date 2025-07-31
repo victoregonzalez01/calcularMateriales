@@ -93,8 +93,8 @@
       "sku":"225779",
       "nombre": "Piso Alhena BIANCO",
       "tamaño": "60x60",
-      "color": 1.44,
-      "rendimiento": "White",
+      "color": "White",
+      "rendimiento":1.44 ,
       "imagen": "img/prueba2"
     },
     {
