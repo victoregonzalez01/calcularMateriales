@@ -204,14 +204,14 @@ if (superficie === 'bañera' || separacionValor <= 3) {
     const sacosBoquilla = Math.ceil(metros / 14);
     document.getElementById('tipoBoquilla').textContent = "Boquilla sin arena";
     document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² aproximadamente`;
+    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
     boquillaResultados.style.display = "block";
 } else if (separacionValor >= 5) {
     // Calcular sacos de boquilla: 1 saco para 14 m²
     const sacosBoquilla = Math.ceil(metros / 14);
     document.getElementById('tipoBoquilla').textContent = "Boquilla con arena";
     document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² aproximadamente`;
+    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
     boquillaResultados.style.display = "block";
 }
 
@@ -265,3 +265,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar las opciones
     updateBoquillaOptions();
 });
+
+// PWA Installation Logic
+            const installPrompt = document.getElementById('installPrompt');
+            let deferredPrompt;
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                // Previene que el mini-infobar aparezca en móviles
+                e.preventDefault();
+                // Guarda el evento para que se pueda activar más tarde
+                deferredPrompt = e;
+                // Muestra el botón de instalación
+                installPrompt.style.display = 'flex';
+
+                installPrompt.addEventListener('click', async () => {
+                    // Oculta el botón de instalación
+                    installPrompt.style.display = 'none';
+                    // Muestra el prompt de instalación
+                    deferredPrompt.prompt();
+                    // Espera a que el usuario responda al prompt
+                    const { outcome } = await deferredPrompt.userChoice;
+                    // Opcionalmente, envía analíticos del resultado
+                    console.log(`User response to the install prompt: ${outcome}`);
+                    // Ya no necesitamos el prompt, limpiamos la variable
+                    deferredPrompt = null;
+                });
+            });
+
+            window.addEventListener('appinstalled', () => {
+                // Oculta el botón de instalación
+                installPrompt.style.display = 'none';
+                // Limpia el prompt guardado
+                deferredPrompt = null;
+                console.log('PWA was installed');
+            });
+
+            // Service Worker Registration
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('sw.js')
+                        .then(registration => {
+                            console.log('ServiceWorker registered: ', registration);
+                        })
+                        .catch(error => {
+                            console.log('ServiceWorker registration failed: ', error);
+                        });
+                });
+            }
+        });
