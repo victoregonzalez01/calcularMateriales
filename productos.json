@@ -319,6 +319,270 @@
       "color": "white",
       "rendimiento": 1.44,
       "imagen": "img/prueba2"
+},
+{
+  "sku":"168149",
+      "nombre": "Piso Agape Greige",
+      "tamaño": "60x60",
+      "color": "gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"205542",
+      "nombre": "Piso Acadia Harbor Graphite",
+      "tamaño": "60x60",
+      "color": "gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"194199",
+      "nombre": "Muro Astratto",
+      "tamaño": "20x30",
+      "color": "White",
+      "rendimiento": 1.5,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150290",
+      "nombre": "Piso Form Remy White",
+      "tamaño": "20x20",
+      "color": "White",
+      "rendimiento":1 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137421",
+      "nombre": "Piso Wheelhouse Bone",
+      "tamaño": "40x40",
+      "color": "#F5EFD7",
+      "rendimiento":1.6 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137423",
+      "nombre": "Piso Wheelhouse Breech",
+      "tamaño": "40x40",
+      "color": "Gray",
+      "rendimiento": 1.6 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137422",
+      "nombre": "Piso Wheelhouse Compass",
+      "tamaño": "40x40",
+      "color": "Gray",
+      "rendimiento": 1.6,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115738",
+      "nombre": "Piso Cotto Casale Rosso",
+      "tamaño": "40x60",
+      "color": "brown",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150297",
+      "nombre": "Piso Tempo Bianco",
+      "tamaño": "40x40",
+      "color": "white",
+      "rendimiento": 1.60 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137406",
+      "nombre": "Piso Brunei Ivory",
+      "tamaño": "60x60",
+      "color": "#F5EFD7",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115682",
+      "nombre": "Piso Stratta Bianco",
+      "tamaño": "50x50",
+      "color": "White",
+      "rendimiento": 1.75,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225778",
+      "nombre": "Piso Materia Bianco",
+      "tamaño": "60x60",
+      "color": "White",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115681",
+      "nombre": "Piso Stratta Grafite",
+      "tamaño": "50x50",
+      "color": "#41424C",
+      "rendimiento": 1.75,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225796",
+      "nombre": "Piso Rockmont Vail",
+      "tamaño": "40x60",
+      "color": "Black",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115685",
+      "nombre": "Piso Muretto Grey",
+      "tamaño": "40x60",
+      "color": "gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"144128",
+      "nombre": "Piso Antartida Fimbul Graphite",
+      "tamaño": "40x60",
+      "color": "#41424C",
+      "rendimiento": 1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225814",
+      "nombre": "Piso Rockmont Desert Tan",
+      "tamaño": "40x60",
+      "color": "#EDC9AF",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150285",
+      "nombre": "Piso Cityline Ivory",
+      "tamaño": "60x60",
+      "color": "#E8DCCA",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"126946",
+      "nombre": "Piso Dover Rochester Grey",
+      "tamaño": "40x60",
+      "color": "Gray",
+      "rendimiento": 1.44,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"168141",
+      "nombre": "Muro Valpeña Gris Niebla",
+      "tamaño": "20x60",
+      "color": "gray",
+      "rendimiento": 1.2,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150287",
+      "nombre": "Piso Valparaiso",
+      "tamaño": "20x20",
+      "color": "White",
+      "rendimiento": 1,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"126937",
+      "nombre": "Piso Antico Mist Grey",
+      "tamaño": "60x60",
+      "color": "gray",
+      "rendimiento":0.98 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150291",
+      "nombre": "Piso Boreal Euthophian Gray",
+      "tamaño": "15x50",
+      "color": "Gray",
+      "rendimiento":0.98 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225783",
+      "nombre": "Santa Monica",
+      "tamaño": "40x40",
+      "color": "#41424C",
+      "rendimiento": 1.6,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"150315",
+      "nombre": "Piso Trekking Clay White",
+      "tamaño": "40x60",
+      "color": "white",
+      "rendimiento":1.44 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"115673",
+      "nombre": "Piso Wood Trails Appalachian",
+      "tamaño": "15x50",
+      "color": "brown",
+      "rendimiento": 0.98,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"137419",
+      "nombre": "Piso Lugano Bianco",
+      "tamaño": "15x50",
+      "color": "white",
+      "rendimiento":0.98 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"225773",
+      "nombre": "Piso Arrebol Natural",
+      "tamaño": "20x60",
+      "color": "#E8DCCA",
+      "rendimiento": 1.2,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"144122",
+      "nombre": "Piso Andino White Nut",
+      "tamaño": "15x50",
+      "color": "white",
+      "rendimiento":0.98 ,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"144121",
+      "nombre": "Piso Seoquoia Brown",
+      "tamaño": "15x50",
+      "color": "Brown",
+      "rendimiento": 0.98,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"168133",
+      "nombre": "Piso Zelanda Tobacco Brown",
+      "tamaño": "15x50",
+      "color": "Brown",
+      "rendimiento": 0.98,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"194098",
+      "nombre": "Muro Crema Marfil",
+      "tamaño": "25x40",
+      "color": "#E8DCCA",
+      "rendimiento": 1.5,
+      "imagen": "img/prueba2"
+},
+{
+  "sku":"168134",
+      "nombre": "Piso Zelanda Smoke Gray",
+      "tamaño": "15x50",
+      "color": "gray",
+      "rendimiento": 0.98,
+      "imagen": "img/prueba2"
 }
   ]
 }
