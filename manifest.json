@@ -2,7 +2,7 @@
   "name": "Calculadora de Materiales",
   "short_name": "CalcMateriales",
   "description": "Herramienta profesional para calcular materiales de construcción",
-  "start_url": "https://victoregonzalez01.github.io/calcularMateriales/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
