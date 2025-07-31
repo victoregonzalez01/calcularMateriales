@@ -204,14 +204,14 @@ if (superficie === 'bañera' || separacionValor <= 3) {
     const sacosBoquilla = Math.ceil(metros / 14);
     document.getElementById('tipoBoquilla').textContent = "Boquilla sin arena";
     document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² `;
+    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² aproximadamente`;
     boquillaResultados.style.display = "block";
 } else if (separacionValor >= 5) {
     // Calcular sacos de boquilla: 1 saco para 14 m²
     const sacosBoquilla = Math.ceil(metros / 14);
     document.getElementById('tipoBoquilla').textContent = "Boquilla con arena";
     document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² aproximadamente`;
     boquillaResultados.style.display = "block";
 }
 
