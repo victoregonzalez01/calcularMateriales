@@ -8,34 +8,16 @@ const errorDiv = document.getElementById('errorMessage');
 const productosContainer = document.getElementById('productosContainer');
 const boquillaResultados = document.getElementById('boquillaResultados');
 
-window.addEventListener('error', (event) => {
-    console.error('Error global:', event.error);
-    mostrarError(`Se produjo un error inesperado: ${event.message}`);
-});
 // Cargar productos desde JSON
 async function cargarProductos() {
     try {
         const response = await fetch('productos.json');
         if (!response.ok) {
-            // Intenta cargar desde caché si falla la red
-            const cache = await caches.open('calc-materiales-cache-v2');
-            const cachedResponse = await cache.match('productos.json');
-            
-            if (cachedResponse) {
-                const data = await cachedResponse.json();
-                productos = data.productos;
-                mostrarProductosDisponibles();
-                return;
-            }
             throw new Error('No se pudo cargar la base de productos');
         }
         const data = await response.json();
         productos = data.productos;
         mostrarProductosDisponibles();
-        
-        // Guarda en caché para futuras solicitudes
-        const cache = await caches.open('calc-materiales-cache-v2');
-        cache.put('productos.json', new Response(JSON.stringify(data)));
     } catch (error) {
         console.error('Error:', error);
         mostrarError(`Error al cargar productos: ${error.message}`);
@@ -72,7 +54,7 @@ function mostrarProductosDisponibles() {
     });
 }
 
-// Función para calcular sacos de cemento
+// Función para calcular sacos de cemento (CORREGIDA)
 function calcularSacosCemento(tamanoStr, metros) {
     const dimensiones = tamanoStr.match(/\d+(\.\d+)?/g);
     if (!dimensiones || dimensiones.length < 2) return 0;
@@ -83,13 +65,11 @@ function calcularSacosCemento(tamanoStr, metros) {
     let rendimientoCemento;
 
     if (ancho > 60 || alto > 60) {
-        rendimientoCemento = 1.5;
-    }
-    else if (ancho === 60 && alto === 60) {
-        rendimientoCemento = 2;
-    }
-    else {
-        rendimientoCemento = 3;
+        rendimientoCemento = 1.5;  // 1 saco rinde para 1.5 m²
+    } else if (ancho === 60 && alto === 60) {
+        rendimientoCemento = 2;    // 1 saco rinde para 2 m²
+    } else {
+        rendimientoCemento = 3;    // 1 saco rinde para 3 m²
     }
 
     return Math.ceil(metros / rendimientoCemento);
@@ -103,7 +83,7 @@ function mostrarError(mensaje) {
     boquillaResultados.style.display = "none";
 }
 
-// Función principal para mostrar resultados
+// Función principal para mostrar resultados (CORREGIDA)
 function mostrarResultados() {
     const sku = document.getElementById("sku").value.trim();
     const metrosInput = document.getElementById("metros").value.trim();
@@ -118,8 +98,7 @@ function mostrarResultados() {
     errorDiv.innerHTML = "";
     boquillaResultados.style.display = "none";
 
-    // Validación
-
+    // Validación CORREGIDA
     if (!superficie) {
         mostrarError("Selecciona una superficie");
         return;
@@ -129,6 +108,7 @@ function mostrarResultados() {
         mostrarError("Selecciona una separación entre piezas");
         return;
     }
+
     if (!sku) {
         mostrarError("Debes ingresar un SKU válido");
         return;
@@ -138,11 +118,12 @@ function mostrarResultados() {
         mostrarError("Ingresa metros cuadrados válidos (mayores a cero)");
         return;
     }
+
     // Validación adicional para bañeras
-        if (superficie === 'bañera' && (separacionValor === 5 || separacionValor === 6)) {
-            mostrarError("Para bañeras, las separaciones de 5mm y 6mm no están disponibles");
-            return;
-        }
+    if (superficie === 'bañera' && (separacionValor === 5 || separacionValor === 6)) {
+        mostrarError("Para bañeras, las separaciones de 5mm y 6mm no están disponibles");
+        return;
+    }
 
     // Buscar producto
     const producto = productos.find(p => p.sku === sku);
@@ -152,7 +133,7 @@ function mostrarResultados() {
         return;
     }
 
-    // Cálculos
+    // Cálculos CORREGIDOS
     const cajasNecesarias = Math.ceil(metros / producto.rendimiento);
     const sacosCemento = calcularSacosCemento(producto.tamaño, metros);
 
@@ -216,22 +197,32 @@ function mostrarResultados() {
     `;
 
     resultadosDiv.style.display = "block";
-//Superficie bañera
-if (superficie === 'bañera' || separacionValor <= 3) {
-    // Calcular sacos de boquilla: 1 saco para 14 m²
-    const sacosBoquilla = Math.ceil(metros / 14);
-    document.getElementById('tipoBoquilla').textContent = "Boquilla sin arena";
-    document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
-    boquillaResultados.style.display = "block";
-} else if (separacionValor >= 5) {
-    // Calcular sacos de boquilla: 1 saco para 14 m²
-    const sacosBoquilla = Math.ceil(metros / 14);
-    document.getElementById('tipoBoquilla').textContent = "Boquilla con arena";
-    document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
-    document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
-    boquillaResultados.style.display = "block";
-}
+
+    // Lógica para boquillas CORREGIDA
+    if (superficie === 'bañera') {
+        // Para bañeras siempre usar boquilla sin arena
+        const sacosBoquilla = Math.ceil(metros / 14);
+        document.getElementById('tipoBoquilla').textContent = "Boquilla sin arena";
+        document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
+        document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+        boquillaResultados.style.display = "block";
+    } else {
+        if (separacionValor <= 3) {
+            // Separaciones pequeñas: boquilla sin arena
+            const sacosBoquilla = Math.ceil(metros / 14);
+            document.getElementById('tipoBoquilla').textContent = "Boquilla sin arena";
+            document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
+            document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+            boquillaResultados.style.display = "block";
+        } else if (separacionValor >= 5) {
+            // Separaciones grandes: boquilla con arena
+            const sacosBoquilla = Math.ceil(metros / 14);
+            document.getElementById('tipoBoquilla').textContent = "Boquilla con arena";
+            document.getElementById('sacosBoquilla').textContent = sacosBoquilla;
+            document.getElementById('calculoBoquilla').textContent = `1 saco rinde para 14 m² (${metros} m² / 14 = ${sacosBoquilla} sacos)`;
+            boquillaResultados.style.display = "block";
+        }
+    }
 
     // Desplazarse suavemente a los resultados
     resultadosDiv.scrollIntoView({ behavior: 'smooth' });
@@ -282,54 +273,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar las opciones
     updateBoquillaOptions();
-});
 
-// PWA Installation Logic
-            const installPrompt = document.getElementById('installPrompt');
-            let deferredPrompt;
+    // PWA Installation Logic
+    const installPrompt = document.getElementById('installPrompt');
+    let deferredPrompt;
 
-            window.addEventListener('beforeinstallprompt', (e) => {
-                // Previene que el mini-infobar aparezca en móviles
-                e.preventDefault();
-                // Guarda el evento para que se pueda activar más tarde
-                deferredPrompt = e;
-                // Muestra el botón de instalación
-                installPrompt.style.display = 'flex';
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Previene que el mini-infobar aparezca en móviles
+        e.preventDefault();
+        // Guarda el evento para que se pueda activar más tarde
+        deferredPrompt = e;
+        // Muestra el botón de instalación
+        installPrompt.style.display = 'flex';
 
-                installPrompt.addEventListener('click', async () => {
-                    // Oculta el botón de instalación
-                    installPrompt.style.display = 'none';
-                    // Muestra el prompt de instalación
-                    deferredPrompt.prompt();
-                    // Espera a que el usuario responda al prompt
-                    const { outcome } = await deferredPrompt.userChoice;
-                    // Opcionalmente, envía analíticos del resultado
-                    console.log(`User response to the install prompt: ${outcome}`);
-                    // Ya no necesitamos el prompt, limpiamos la variable
-                    deferredPrompt = null;
-                });
-            });
-
-            window.addEventListener('appinstalled', () => {
-                // Oculta el botón de instalación
-                installPrompt.style.display = 'none';
-                // Limpia el prompt guardado
-                deferredPrompt = null;
-                console.log('PWA was installed');
-            });
-
-            // Service Worker Registration
-           if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-            .then(registration => {
-                console.log('ServiceWorker registrado: ', registration);
-                // Forzar actualización del Service Worker
-                registration.update();
-            })
-            .catch(error => {
-                console.log('ServiceWorker registro fallido: ', error);
-            });
-                });
-            }
+        installPrompt.addEventListener('click', async () => {
+            // Oculta el botón de instalación
+            installPrompt.style.display = 'none';
+            // Muestra el prompt de instalación
+            deferredPrompt.prompt();
+            // Espera a que el usuario responda al prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            // Opcionalmente, envía analíticos del resultado
+            console.log(`User response to the install prompt: ${outcome}`);
+            // Ya no necesitamos el prompt, limpiamos la variable
+            deferredPrompt = null;
         });
+    });
+
+    window.addEventListener('appinstalled', () => {
+        // Oculta el botón de instalación
+        installPrompt.style.display = 'none';
+        // Limpia el prompt guardado
+        deferredPrompt = null;
+        console.log('PWA was installed');
+    });
+
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(registration => {
+                    console.log('ServiceWorker registered: ', registration);
+                })
+                .catch(error => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+        });
+    }
+});
