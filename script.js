@@ -17,6 +17,7 @@ async function cargarProductos() {
         }
         const data = await response.json();
         productos = data.productos;
+        mostrarProductosDisponibles();
     }
     } catch (error) {
         console.error('Error:', error);
@@ -25,7 +26,34 @@ async function cargarProductos() {
 }
 
 // Mostrar productos disponibles
+function mostrarProductosDisponibles() {
+    productosContainer.innerHTML = '';
 
+    productos.forEach(producto => {
+        const productCard = document.createElement('div');
+        productCard.className = 'col-md-6 mb-3';
+        productCard.innerHTML = `
+            <div class="product-card" data-sku="${producto.sku}">
+                <h4>${producto.nombre}</h4>
+                <p><strong>SKU:</strong> ${producto.sku}</p>
+                <p><strong>Tamaño:</strong> ${producto.tamaño}</p>
+                <p>
+                    <strong>Color:</strong>
+                    <span class="color-preview" style="background-color:${producto.color}"></span>
+                </p>
+            </div>
+        `;
+        productosContainer.appendChild(productCard);
+    });
+
+    // Agregar event listeners a las tarjetas de productos
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const sku = this.getAttribute('data-sku');
+            document.getElementById('sku').value = sku;
+        });
+    });
+}
 
 // Función para calcular sacos de cemento (CORREGIDA)
 function calcularSacosCemento(tamanoStr, metros) {
@@ -294,5 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
