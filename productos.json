@@ -2,12 +2,12 @@
   "productos": [
     
     {
-      "sku": "137437",
-      "nombre": "PISO Ruidoso",
-      "tamaño": "17.5X91",
-      "color": "Brown",
-      "rendimiento": 1.59,
-      "imagen": "img/pisoRuidoso_137437.jpg"
+      sku: "137437",
+      nombre: "PISO Ruidoso",
+      tamaño: "17.5X91",
+      color: "Brown",
+      rendimiento: 1.59,
+      imagen: "img/pisoRuidoso_137437.jpg"
     },
     {
       "sku": "168146",
@@ -587,4 +587,5 @@
 }
   ]
 }
+
 
